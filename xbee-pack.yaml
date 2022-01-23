@@ -1,0 +1,24 @@
+schema-version: 1.0
+
+description: |
+  The attr package contains utilities to administer the extended attributes on filesystem objects.
+
+  Installed programs: attr, getfattr, and setfattr
+  Installed library: libattr.so
+  Installed directories: /usr/include/attr and /usr/share/doc/attr-2.5.1
+  Short Descriptions
+  attr: Extends attributes on filesystem objects
+  getfattr: Gets the extended attributes of filesystem objects
+  setfattr: Sets the extended attributes of filesystem objects
+  libattr: Contains the library functions for manipulating extended attributes
+
+builder: ./attr-builder
+
+var:
+  version: 2.5.1
+
+
+provision:
+  - copy:
+      builder: attr
+      todir: /
