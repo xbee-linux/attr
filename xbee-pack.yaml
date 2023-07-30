@@ -14,21 +14,21 @@ description: |
   setfattr: Sets the extended attributes of filesystem objects
   libattr: Contains the library functions for manipulating extended attributes
 
-in:
+var:
   version: 2.5.1
 
 provision:
   - url:
-      from: https://download.savannah.gnu.org/releases/attr/attr-{% version %}.tar.gz
-      todir: "{% xbeeSrc %}"
+      from: https://download.savannah.gnu.org/releases/attr/attr-{{ .version }}.tar.gz
+      todir: "{{ .xbee.src }}"
 
 build:
   - shell:
       cmds:
-        - ./configure --prefix=/usr --disable-static --sysconfdir=/etc --docdir=/usr/share/doc/attr-{% version %}
+        - ./configure --prefix=/usr --disable-static --sysconfdir=/etc --docdir=/usr/share/doc/attr-{{ .version }}
         - make
 #        - make check
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/attr-{% version %}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/attr-{{ .version }}"
 
 
