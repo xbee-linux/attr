@@ -15,7 +15,8 @@ description: |
   libattr: Contains the library functions for manipulating extended attributes
 
 var:
-  version: 2.5.1
+  xbee:
+    version: 2.5.1
 
 provision:
   - url: https://download.savannah.gnu.org/releases/attr/attr-{{ .version }}.tar.gz
