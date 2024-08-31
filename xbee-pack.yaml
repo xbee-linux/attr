@@ -19,15 +19,15 @@ var:
     version: 2.5.1
 
 provision:
-  - url: https://download.savannah.gnu.org/releases/attr/attr-{{ .version }}.tar.gz
+  - url: https://download.savannah.gnu.org/releases/attr/attr-{{ .xbee.version }}.tar.gz
 
 build:
   - shell:
       cmds:
-        - ./configure --prefix=/usr --disable-static --sysconfdir=/etc --docdir=/usr/share/doc/attr-{{ .version }}
+        - ./configure --prefix=/usr --disable-static --sysconfdir=/etc --docdir=/usr/share/doc/attr-{{ .xbee.version }}
         - make
 #        - make check
         - make install DESTDIR={{ .xbee.out }}
-      directory: "{{ .xbee.src }}/attr-{{ .version }}"
+      directory: "{{ .xbee.src }}/attr-{{ .xbee.version }}"
 
 
